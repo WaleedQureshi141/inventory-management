@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="inventory-management.js" defer></script>
+</head>
+<body class="gradient-custom">
+  <div>
+
+    <!-- TITLE -->
+    <section">
+      <div class="container py-1" style="max-width: 350px;">
+        <div class="row justify-content-center">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-2 text-center">
+
+              <h4 class="fw-bold mb-2 text-uppercase">INVENTORY MANAGEMENT</h4>
+              <h6 class="fw-bold mb-2 text-uppercase">Waleed Qureshi</h6>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITEMS -->
+    <section style="margin-top: 50px;">
+      <div class="container py-1" style="max-width: 350px;">
+        <div class="row justify-content-center">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-2 text-center">
+
+              <h4 class="fw-bold mb-2 text-uppercase">ITEMS</h4>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITEMS TABLE -->
+    <section style="margin-bottom: 30px; margin-top: 30px;"> 
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-10">
+              <div class="table-responsive">
+                <table class="table table-dark table-bordered mb-0 table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">ITEM ID</th>
+                      <th scope="col">ITEM NAME</th>
+                      <th scope="col">ITEM DESCRIPTION</th>
+                      <th scope="col">ITEM WAREHOUSE</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="item-table-body">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="row">
+
+      <!-- UPDATE ITEMS FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-2 text-center">
+
+                  <form id="update-item-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">UPDATE ITEM</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-item-id">item ID</label>
+                      <input type="text" id="update-item-id" name="update-item-id" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-item-name">item Name</label>
+                      <input type="text" id="update-item-name" name="update-item-name" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-desc">Item Description</label>
+                      <input type="text" id="update-desc" name="update-desc" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-item-warehouse">Warehouse Name</label>
+                      <input type="text" id="update-item-warehouse" name="update-item-warehouse" class="form-control-md" />
+                      <!-- <select id="update-item-warehouse" name="update-item-warehouse" class="form-control-md">
+
+                      </select> -->
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="item-update-button" name="item-update-button" type="submit">UPDATE</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ADD ITEM FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-2 text-center">
+
+                  <form id="new-item-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">ADD ITEM</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="item-name">Item Name</label>
+                      <input type="text" id="add-item-name" name="add-item-name" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="add-desc">Item Desctipion</label>
+                      <input type="text" id="add-desc" name="add-desc" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="add-item-warehouse">Warehouse ID</label>
+                      <input type="text" id="add-item-warehouse" name="add-item-warehouse" class="form-control-md" />
+                      <!-- <select id="update-item-warehouse" name="update-item-warehouse" class="form-control-md">
+
+                      </select> -->
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="item-add-button" type="submit">ADD</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- DELETE ITEM FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-3 text-center">
+
+                  <form id="del-item-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">DELETE ITEM</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-item-id">Item ID</label>
+                      <input type="text" id="del-item-id" name="del-item-id" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-item-name">Item Name</label>
+                      <input type="text" id="del-item-name" name="del-item-name" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-desc">Item Description</label>
+                      <input type="text" id="del-desc" name="del-desc" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-item-warehouse">Warehouse Name</label>
+                      <input type="text" id="del-item-warehouse" name="del-item-warehouse" class="form-control-md" disabled/>
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="item-del-button" name="warehouse-del-button" type="submit">CONFIRM DELETE</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+    </div>
+
+
+
+    <!-- WAREHOUSES -->
+    <section style="margin-top: 150px;">
+      <div class="container py-1" style="max-width: 350px;">
+        <div class="row justify-content-center">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-2 text-center">
+
+              <h4 class="fw-bold mb-2 text-uppercase">WAREHOUSES</h4>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- WAREHOUSE TABLE -->
+    <section style="margin-bottom: 30px; margin-top: 30px;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-10">
+              <div class="table-responsive">
+                <table class="table table-dark table-bordered mb-0 table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">WAREHOUSE ID</th>
+                      <th scope="col">WAREHOUSE NAME</th>
+                      <th scope="col">WAREHOUSE LOCATION</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="warehouse-table-body">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="row">
+
+      <!-- UPDATE WAREHOUSE FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-2 text-center">
+
+                  <form id="update-warehouse-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">UPDATE WAREHOUSE</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-warehouse-id">Warehouse ID</label>
+                      <input type="text" id="update-warehouse-id" name="update-warehouse-id" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-warehouse-name">Warehouse Name</label>
+                      <input type="text" id="update-warehouse-name" name="update-warehouse-name" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="update-location">Warehouse Location</label>
+                      <input type="text" id="update-location" name="update-location" class="form-control-md" />
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="warehouse-update-button" name="warehouse-update-button" type="submit">UPDATE</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ADD WAREHOUSE FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-2 text-center">
+
+                  <form id="new-warehouse-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">ADD WAREHOUSE</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="warehouse-name">Warehouse Name</label>
+                      <input type="text" id="add-warehouse-name" name="add-warehouse-name" class="form-control-md" />
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="location">Warehouse Location</label>
+                      <input type="text" id="add-location" name="add-location" class="form-control-md" />
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="warehouse-add-button" type="submit">ADD</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- DELETE WAREHOUSE FORM -->
+      <div class="col">
+        <section>
+          <div class="container py-1">
+            <div class="row justify-content-center">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-3 text-center">
+
+                  <form id="del-warehouse-form" action="#">
+                    <h5 class="fw-bold mb-2 text-uppercase">DELETE WAREHOUSE</h5>
+                    <br>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-warehouse-id">Warehouse ID</label>
+                      <input type="text" id="del-warehouse-id" name="del-warehouse-id" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-warehouse-name">Warehouse Name</label>
+                      <input type="text" id="del-warehouse-name" name="del-warehouse-name" class="form-control-md" disabled/>
+                    </div>
+                    <div class="form-outline form-white mb-3">
+                      <label class="form-label" for="del-location">Warehouse Location</label>
+                      <input type="text" id="del-location" name="del-location" class="form-control-md" disabled/>
+                    </div>
+                    <button class="btn btn-outline-light px-4" id="warehouse-del-button" name="warehouse-del-button" type="submit">CONFIRM DELETE</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+    </div>
+  </div>
+</body>
+</html>
